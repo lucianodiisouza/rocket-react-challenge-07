@@ -38,7 +38,7 @@ const Dashboard: React.FC = () => {
         (transaction: Transaction) => ({
           ...transaction,
           formattedValue: formatValue(transaction.value),
-          formatedDate: new Date(transaction.created_at).toLocaleDateString(
+          formattedDate: new Date(transaction.created_at).toLocaleDateString(
             'pt-BR',
           ),
         }),
@@ -98,7 +98,7 @@ const Dashboard: React.FC = () => {
 
             <tbody>
               {transactions.map(transaction => (
-                <tr>
+                <tr key={transaction.id}>
                   <td className="title">{transaction.title}</td>
                   <td className={transaction.type}>
                     {transaction.type === 'outcome' && ' - '}
